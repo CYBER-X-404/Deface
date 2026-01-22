@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Hacked</title>
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        body {
+            background-color: #000;
+            color: #00ff00;
+            font-family: "Courier New", Courier, monospace;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+            background: url('https://raw.githubusercontent.com/CYBER-X-404/Deface/refs/heads/main/bg.gif') no-repeat center center fixed;
+            background-size: cover;
+            padding: 15px;
+            touch-action: manipulation;
+        }
+
+        #logo {
+            width: 100%;
+            max-width: 200px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 10px #ff073a);
+            animation: vibrate 0.1s infinite alternate;
+        }
+
+        @media (max-width: 768px) {
+            #logo {
+                max-width: 150px;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #logo {
+                max-width: 120px;
+            }
+        }
+
+        .glitch-text {
+            font-size: clamp(1.8em, 8vw, 3em);
+            position: relative;
+            text-align: center;
+            font-weight: bold;
+            animation: glitch 1.5s infinite, blink 1s infinite alternate, vibrate 0.1s infinite alternate;
+            margin: 3px 0;
+            line-height: 1.1;
+            cursor: pointer;
+        }
+
+        .glitch-text::before, .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            opacity: 0.8;
+            animation: glitch 1.5s infinite;
+        }
+
+        .glitch-text::before {
+            left: 1px;
+            color: #ff073a;
+            text-shadow: -1px 0 cyan;
+            clip: rect(0, 100vw, 0, 0);
+        }
+
+        .glitch-text::after {
+            left: -1px;
+            color: cyan;
+            text-shadow: 1px 0 #ff073a;
+            clip: rect(0, 100vw, 0, 0);
+        }
+
+        @keyframes glitch {
+            0%, 100% { clip: rect(0, 100vw, 0, 0); }
+            10% { clip: rect(5px, 100vw, 15px, 0); }
+            20% { clip: rect(10px, 100vw, 25px, 0); }
+            30% { clip: rect(15px, 100vw, 35px, 0); }
+            40% { clip: rect(20px, 100vw, 45px, 0); }
+            50% { clip: rect(25px, 100vw, 55px, 0); }
+            60% { clip: rect(30px, 100vw, 65px, 0); }
+            70% { clip: rect(35px, 100vw, 75px, 0); }
+            80% { clip: rect(40px, 100vw, 85px, 0); }
+            90% { clip: rect(45px, 100vw, 95px, 0); }
+        }
+
+        @keyframes vibrate {
+            0% { transform: translate(0); }
+            100% { transform: translate(0.5px, 0.5px); }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        #scrolling-text {
+            position: fixed;
+            bottom: 8px;
+            width: 100%;
+            color: #00aaff;
+            font-size: clamp(0.9em, 3.5vw, 1.2em);
+            white-space: nowrap;
+            overflow: hidden;
+            animation: scroll 12s linear infinite;
+            text-align: center;
+            text-shadow: 0 0 5px rgba(0, 170, 255, 0.9);
+            font-weight: bold;
+            padding: 0 5px;
+        }
+
+        @media (max-width: 768px) {
+            #scrolling-text {
+                animation: scroll 18s linear infinite;
+                bottom: 5px;
+            }
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+        }
+    </style>
+</head>
+
+<body oncontextmenu="return false" onkeydown="return false" onmousedown="return false">
+
+    <div class="content">
+        <img src="https://github.com/CYBER-X-404/Deface/raw/refs/heads/main/logo.png" alt="Grey Cyber Team Logo" id="logo">
+
+        <div class="glitch-text" data-text="HACKED BY" onclick="redirectToTelegram()">HACKED BY</div>
+
+        <div class="glitch-text" id="team-text" data-text="GREY CYBER TEAM" onclick="redirectToTelegram()">GREY CYBER TEAM</div>
+    </div>
+
+    <div id="scrolling-text">⚠️Upgrade your security Warn⚠️</div>
+
+    <!-- Hidden audio element for immediate playback -->
+    <audio id="lagu" loop preload="auto">
+        <source src="https://raw.githubusercontent.com/CYBER-X-404/Deface/refs/heads/main/m_29983qt9x0.mp4" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // Force immediate audio playback
+        (function() {
+            'use strict';
+            
+            var audio = document.getElementById('lagu');
+            var playAttempt;
+            
+            // Function to play audio with maximum attempts
+            function playAudio() {
+                playAttempt = audio.play();
+                
+                if (playAttempt !== undefined) {
+                    playAttempt.then(function() {
+                        console.log("Audio playing successfully!");
+                    }).catch(function(error) {
+                        console.log("Audio play failed, retrying...");
+                        
+                        // Create and dispatch a click event to trigger audio
+                        setTimeout(function() {
+                            var clickEvent = new MouseEvent('click', {
+                                view: window,
+                                bubbles: true,
+                                cancelable: true
+                            });
+                            document.dispatchEvent(clickEvent);
+                        }, 100);
+                        
+                        // Try again after 500ms
+                        setTimeout(playAudio, 500);
+                    });
+                }
+            }
+            
+            // Try to play immediately on page load
+            document.addEventListener('DOMContentLoaded', function() {
+                audio.volume = 0.8; // Set volume
+                playAudio();
+            });
+            
+            // Also try on window load
+            window.addEventListener('load', function() {
+                setTimeout(playAudio, 100);
+            });
+            
+            // Play on any user interaction
+            document.addEventListener('click', function() {
+                playAudio();
+            });
+            
+            document.addEventListener('touchstart', function() {
+                playAudio();
+            });
+            
+            document.addEventListener('keydown', function() {
+                playAudio();
+            });
+        })();
+
+        function redirectToTelegram() {
+            window.location.href = "https://t.me/GreyCyberTeam";
+        }
+        
+        // Auto-click the page after 50ms to trigger audio
+        setTimeout(function() {
+            document.body.click();
+        }, 50);
+        
+        // Additional click after 200ms for safety
+        setTimeout(function() {
+            if (document.getElementById('lagu').paused) {
+                document.body.click();
+            }
+        }, 200);
+    </script>
+
+</body>
+
+</html>
